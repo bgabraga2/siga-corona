@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import Post from "../database/models/Post";
 
 export async function create() {

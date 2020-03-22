@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+import * as mongoose from "mongoose";
+import * as dotenv from "dotenv";
 dotenv.config({ path: `src/env/.env.${process.env.NODE_ENV}` });
 
 export function connect(): void {
