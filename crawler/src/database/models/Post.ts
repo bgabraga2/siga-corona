@@ -6,7 +6,7 @@ const schema = new Schema(
   {
     type: {
       type: String,
-      enum: ["twitter"],
+      enum: ["twitter", "instagram"],
       required: true
     },
     user: {
