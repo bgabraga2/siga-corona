@@ -20,13 +20,13 @@ export class InstagramHandler {
   }
 
   async getInstagramPostById(socialId: string) {
-    const tweet = await Post.findOne({
+    const instagramPost = await Post.findOne({
       socialId: socialId
     });
-    return tweet;
+    return instagramPost;
   }
 
-  async saveTweet(instagramPost: any) {
+  async saveInstagramPost(instagramPost: any) {
     return await Post.create({
       type: "instagram",
       user: instagramPost.username,
@@ -62,7 +62,7 @@ export class InstagramHandler {
         posts.forEach(async (post: any) => {
           this.getInstagramPostById(post.id).then(async res => {
             if (!res && this.isAboutCovid(post.text))
-              await this.saveTweet(post);
+              await this.saveInstagramPost(post);
           });
         });
       })
