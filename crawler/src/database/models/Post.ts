@@ -1,5 +1,5 @@
 import { Document, Schema } from "mongoose";
-import * as mongoose from "mongoose";
+import mongoose from "mongoose";
 
 export interface IPost extends Document {}
 

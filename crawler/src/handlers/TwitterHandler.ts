@@ -1,5 +1,5 @@
-import * as Twitter from "twitter";
-import * as dotenv from "dotenv";
+import Twitter from "twitter";
+import dotenv from "dotenv";
 import Post from "../database/models/Post";
 dotenv.config({ path: `src/env/.env.${process.env.NODE_ENV}` });
 import { twitterAccounts } from "../data/data";

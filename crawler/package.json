@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "set NODE_ENV=local&&ts-node-dev --respawn --transpileOnly src/server.ts",
-    "prod": "set NODE_ENV=production&&tsc src/server.ts"
+    "prod": "set NODE_ENV=local&&tsc"
   },
   "devDependencies": {
     "@types/twitter": "^1.7.0",
