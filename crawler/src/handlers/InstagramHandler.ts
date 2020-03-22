@@ -5,10 +5,6 @@ dotenv.config({ path: `src/env/.env.${process.env.NODE_ENV}` });
 const instagramPosts = require("instagram-posts");
 
 export class InstagramHandler {
-  twitterClient: Twitter;
-
-  tweetUrlBase: string = "https://twitter.com/i/web/status";
-
   constructor() {}
 
   async process() {
