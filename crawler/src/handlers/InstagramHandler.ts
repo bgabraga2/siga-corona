@@ -71,7 +71,10 @@ export class InstagramHandler {
         });
       })
       .catch((err: any) => {
-        console.error(`Erro ao pegar tweets do usuário ${account}`, err);
+        console.error(
+          `Erro ao pegar posts do instagram do usuário ${account}`,
+          err
+        );
       });
   }
 }
