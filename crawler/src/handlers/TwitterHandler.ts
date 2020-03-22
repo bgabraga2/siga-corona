@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import Post from "../database/models/Post";
 dotenv.config({ path: `src/env/.env.${process.env.NODE_ENV}` });
+import { twitterAccounts } from "../data/data";
 
 export class TwitterHandler {
   twitterClient: Twitter;
@@ -27,7 +28,7 @@ export class TwitterHandler {
   }
 
   getAccounts() {
-    return ["oatila", "canalpeixebabel", "nilmoretto"];
+    return twitterAccounts;
   }
 
   async getTweetById(socialId: string) {

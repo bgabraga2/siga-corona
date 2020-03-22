@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import Post from "../database/models/Post";
 dotenv.config({ path: `src/env/.env.${process.env.NODE_ENV}` });
 const instagramPosts = require("instagram-posts");
+import { instagramAccounts } from "../data/data";
 
 export class InstagramHandler {
   constructor() {}
@@ -16,7 +17,7 @@ export class InstagramHandler {
   }
 
   getAccounts() {
-    return ["oatila"];
+    return instagramAccounts;
   }
 
   async getInstagramPostById(socialId: string) {
