@@ -27,7 +27,7 @@ export class TwitterHandler {
   }
 
   getAccounts() {
-    return ["bgabraga"];
+    return ["oatila", "canalpeixebabel", "nilmoretto"];
   }
 
   async getTweetById(socialId: string) {
@@ -48,6 +48,25 @@ export class TwitterHandler {
     });
   }
 
+  isAboutCovid(tweetText: string) {
+    const specialWords = [
+      "covid-19",
+      "covid",
+      "#coronavirus",
+      "#covid-19",
+      "#covid19",
+      "corona"
+    ];
+
+    let isAbout = false;
+    specialWords.forEach(word => {
+      const n = tweetText.toLowerCase().search(word);
+      if (n > 0) isAbout = true;
+    });
+
+    return isAbout;
+  }
+
   async getTweetsByAccount(account: string) {
     var params = { screen_name: account };
 
@@ -62,7 +81,8 @@ export class TwitterHandler {
           ) {
             this.getTweetById(tweet.id)
               .then(async res => {
-                if (!res) await this.saveTweet(tweet);
+                if (!res && this.isAboutCovid(tweet.text))
+                  await this.saveTweet(tweet);
               })
               .catch(err => {
                 console.error(
