@@ -3,7 +3,8 @@ export const twitterAccounts = [
   "oatila",
   "canalpeixebabel",
   "nilmoretto",
-  "OPASOMSBrasil"
+  "OPASOMSBrasil",
+  "minsaude"
 ];
 export const twitterSpecialWords = [
   "covid-19",
