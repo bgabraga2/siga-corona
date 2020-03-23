@@ -1,3 +1,5 @@
+console.log(`System starting at: "${process.env.NODE_ENV}"`);
+
 require("dotenv-flow").config();
 import TwitterHandler from "./handlers/TwitterHandler";
 import InstagramHandler from "./handlers/InstagramHandler";
