@@ -1,6 +1,4 @@
-import dotenv from "dotenv";
 import Post from "../database/models/Post";
-dotenv.config({ path: `src/env/.env.${process.env.NODE_ENV}` });
 const instagramPosts = require("instagram-posts");
 import { instagramAccounts } from "../data/data";
 
