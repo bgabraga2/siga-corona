@@ -8,7 +8,7 @@
     "postinstall": "yarn build-ts",
     "serve": "cross-env NODE_ENV=local ts-node-dev ./src/server.ts",
     "start": "node ./dist/server.js",
-    "deploy": "cd .. && git subtree push --prefix crawler heroku master"
+    "deploy": "cd .. && git subtree push --prefix crawler heroku-crawler master"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
