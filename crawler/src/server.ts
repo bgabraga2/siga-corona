@@ -1,15 +1,23 @@
-import dotenv from "dotenv";
+require("dotenv-flow").config();
 import TwitterHandler from "./handlers/TwitterHandler";
 import InstagramHandler from "./handlers/InstagramHandler";
 import { connect } from "./database/connect";
-import { resolve } from "path";
+import logger from "node-color-log";
 
-connect();
+class Server {
+  constructor() {
+    logger.info(`Server starting at: "${process.env.NODE_ENV}"`);
+    this.start();
+  }
+  async start() {
+    await connect();
+    this.thread();
+  }
+  async thread() {
+    TwitterHandler.process();
+    InstagramHandler.process();
+  }
+}
 
-// Lendo variáveis de ambiente
-dotenv.config({ path: resolve(`./src/env/.env.${process.env.NODE_ENV}`) });
-
-setInterval(() => {
-  TwitterHandler.process();
-  InstagramHandler.process();
-}, Number(process.env.CRAWLER_POOLING_MILISECONDS));
+const sv = new Server();
+setInterval(sv.thread, Number(process.env.CRAWLER_POOLING_MILISECONDS));

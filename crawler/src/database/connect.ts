@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
-dotenv.config({ path: `src/env/.env.${process.env.NODE_ENV}` });
+import logger from "node-color-log";
 
-export function connect(): void {
-  mongoose.connect(process.env.MONGODB_CONNECTION_STRING || "", {
+export async function connect() {
+  logger.info("Trying to connect at database...");
+  await mongoose.connect(process.env.MONGODB_CONNECTION_STRING || "", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   });
+  logger.info("Database connected!");
 }
