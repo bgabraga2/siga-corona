@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "tsc": "tsc",
+    "build-ts": "tsc",
+    "postinstall": "yarn build-ts",
     "serve": "cross-env NODE_ENV=local ts-node-dev ./src/server.ts",
     "prestart": "yarn tsc",
     "start": "NODE_ENV=production && node ./dist/server.js",
