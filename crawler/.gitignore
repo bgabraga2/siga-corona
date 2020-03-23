@@ -8,6 +8,7 @@ node_modules
 .env.*
 !.env.default
 
+#
 # Log files
 npm-debug.log*
 yarn-debug.log*
