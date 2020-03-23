@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "cross-env NODE_ENV=local ts-node-dev ./src/server.ts",
-    "prestart": "yarn tsc",
+    "prestart": "yarn && yarn tsc",
     "start": "NODE_ENV=production && node ./dist/server.js",
     "deploy": "cd .. && git subtree push --prefix crawler heroku master"
   },
