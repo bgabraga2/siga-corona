@@ -4,8 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "tsc": "tsc",
     "serve": "cross-env NODE_ENV=local ts-node-dev ./src/server.ts",
-    "prestart": "yarn global add typescript && yarn tsc",
+    "prestart": "yarn tsc",
     "start": "NODE_ENV=production && node ./dist/server.js",
     "deploy": "cd .. && git subtree push --prefix crawler heroku master"
   },
