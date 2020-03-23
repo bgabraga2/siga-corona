@@ -1,6 +1,6 @@
 import Post from "../database/models/Post";
 const instagramPosts = require("instagram-posts");
-import { instagramAccounts } from "../data/data";
+import { instagramAccounts, instagramSpecialWords } from "../data/data";
 import logger from "node-color-log";
 
 export class InstagramHandler {
@@ -37,14 +37,7 @@ export class InstagramHandler {
   }
 
   isAboutCovid(postText: string) {
-    const specialWords = [
-      "covid-19",
-      "covid",
-      "#coronavirus",
-      "#covid-19",
-      "#covid19",
-      "corona"
-    ];
+    const specialWords = instagramSpecialWords;
 
     let isAbout = false;
     specialWords.forEach(word => {
