@@ -1,1 +1,1 @@
-crawler: cd crawler && yarn start
+web: cd crawler && yarn start
