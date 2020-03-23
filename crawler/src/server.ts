@@ -1,15 +1,23 @@
-console.log(`System starting at: "${process.env.NODE_ENV}"`);
-
 require("dotenv-flow").config();
 import TwitterHandler from "./handlers/TwitterHandler";
 import InstagramHandler from "./handlers/InstagramHandler";
 import { connect } from "./database/connect";
-import { resolve } from "path";
+import logger from "node-color-log";
 
-connect();
+class Server {
+  constructor() {
+    logger.info(`Server starting at: "${process.env.NODE_ENV}"`);
+    this.start();
+  }
+  async start() {
+    await connect();
+    this.thread();
+  }
+  async thread() {
+    TwitterHandler.process();
+    InstagramHandler.process();
+  }
+}
 
-setInterval(() => {
-  console.log("Starting process...");
-  TwitterHandler.process();
-  InstagramHandler.process();
-}, Number(process.env.CRAWLER_POOLING_MILISECONDS));
+const sv = new Server();
+setInterval(sv.thread, Number(process.env.CRAWLER_POOLING_MILISECONDS));

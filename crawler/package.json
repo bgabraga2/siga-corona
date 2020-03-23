@@ -29,6 +29,7 @@
     "express-validator": "^6.4.0",
     "instagram-posts": "^2.2.0",
     "mongoose": "^5.7.3",
+    "node-color-log": "^2.2.0",
     "twitter": "^1.7.1"
   }
 }

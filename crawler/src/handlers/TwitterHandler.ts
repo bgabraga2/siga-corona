@@ -1,6 +1,7 @@
 import Twitter from "twitter";
 import Post from "../database/models/Post";
 import { twitterAccounts } from "../data/data";
+import logger from "node-color-log";
 
 export class TwitterHandler {
   twitterClient: Twitter;
@@ -17,7 +18,7 @@ export class TwitterHandler {
   }
 
   async process() {
-    console.log("Fetching tweeets...");
+    logger.info("Fetching tweeets...");
     const accounts = this.getAccounts();
     accounts.forEach(account => {
       this.getTweetsByAccount(account);

@@ -1,12 +1,13 @@
 import Post from "../database/models/Post";
 const instagramPosts = require("instagram-posts");
 import { instagramAccounts } from "../data/data";
+import logger from "node-color-log";
 
 export class InstagramHandler {
   constructor() {}
 
   async process() {
-    console.log("Fetching instagram posts...");
+    logger.info("Fetching instagram posts...");
     const accounts = this.getAccounts();
     accounts.forEach(account => {
       this.getInstagramPostsByAccount(account);
