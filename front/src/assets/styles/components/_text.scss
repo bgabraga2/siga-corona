@@ -1,0 +1,24 @@
+.text {
+  &--default {
+    @include fontAlpha(16px, 500);
+    line-height: 20px;
+    @include media-breakpoint-up(lg) {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+
+  &--md {
+    @include fontAlpha(14px, 500);
+    line-height: 20px;
+    @include media-breakpoint-up(lg) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &--sm {
+    @include fontAlpha(12px, 500);
+    line-height: 16px;
+  }
+}

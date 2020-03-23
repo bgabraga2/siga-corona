@@ -1,0 +1,85 @@
+@import '../../../node_modules/bootstrap/scss/variables';
+
+$black: #000000;
+$white: #ffffff;
+$transparent: transparent;
+
+$colors: (
+  'white': #ffffff,
+  'black': #000000,
+  'transparent': transparent
+);
+
+@each $name, $hash in $colors {
+  .bg-#{$name} {
+    background-color: $hash;
+  }
+
+  .color-#{$name} {
+    color: $hash;
+  }
+
+  .outline-#{$name} {
+    border-color: $hash;
+  }
+}
+
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+$spacer: 5px;
+$spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
+    0: 0,
+    1: (
+      $spacer * 1
+    ),
+    2: (
+      $spacer * 2
+    ),
+    3: (
+      $spacer * 3
+    ),
+    4: (
+      $spacer * 4
+    ),
+    5: (
+      $spacer * 5
+    ),
+    6: (
+      $spacer * 6
+    ),
+    7: (
+      $spacer * 7
+    ),
+    8: (
+      $spacer * 8
+    ),
+    9: (
+      $spacer * 9
+    ),
+    10: (
+      $spacer * 10
+    )
+  ),
+  $spacers
+);
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$sizes: map-merge(
+  (
+    25: 25%,
+    50: 50%,
+    75: 75%,
+    100: 100%,
+    auto: auto
+  ),
+  $sizes
+);

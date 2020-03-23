@@ -1,0 +1,33 @@
+.title {
+  &--default {
+    @include fontAlpha(30px, 700);
+
+    @include media-breakpoint-up(lg) {
+      font-size: 40px;
+    }
+  }
+
+  &--section {
+    @include fontAlpha(22px, 700);
+
+    @include media-breakpoint-up(lg) {
+      font-size: 30px;
+    }
+  }
+
+  &--big {
+    @include fontAlpha(30px, 700);
+
+    @include media-breakpoint-up(lg) {
+      font-size: 50px;
+    }
+  }
+
+  &--lg {
+    @include fontAlpha(30px, 700);
+
+    @include media-breakpoint-up(lg) {
+      font-size: 40px;
+    }
+  }
+}
