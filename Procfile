@@ -1,0 +1,1 @@
+crawler: cd crawler && yarn start
