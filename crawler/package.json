@@ -32,6 +32,7 @@
     "instagram-posts": "^2.2.0",
     "mongoose": "^5.7.3",
     "node-color-log": "^2.2.0",
-    "twitter": "^1.7.1"
+    "twitter": "^1.7.1",
+    "youtube-channel-videos": "^1.0.0"
   }
 }
