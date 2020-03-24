@@ -16,8 +16,21 @@ export const twitterSpecialWords = [
 ];
 
 // Instagram data
-export const instagramAccounts = ["oatila"];
+export const instagramAccounts = ["oatila", "minsaude"];
 export const instagramSpecialWords = [
+  "covid-19",
+  "covid",
+  "#coronavirus",
+  "#covid-19",
+  "#covid19",
+  "corona"
+];
+
+// Youtube data
+export const youtubeChannels = [
+  "UCSTlOTcyUmzvhQi6F8lFi5w" // oatila
+];
+export const youtubeSpecialWords = [
   "covid-19",
   "covid",
   "#coronavirus",
