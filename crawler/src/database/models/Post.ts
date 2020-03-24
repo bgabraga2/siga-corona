@@ -34,6 +34,9 @@ const schema = new Schema(
       type: String,
       required: false
     },
+    date: {
+      type: Date
+    },
     fullJson: {
       type: String,
       required: false
