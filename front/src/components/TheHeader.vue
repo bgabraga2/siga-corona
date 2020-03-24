@@ -23,6 +23,10 @@ export default class TheHeader extends Vue {}
 <style lang="scss" scoped>
 .header {
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 
   &__content {
     height: 64px;

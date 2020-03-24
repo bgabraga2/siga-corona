@@ -3,14 +3,14 @@
     <p class="filter__title color-gray-dark title--h6">Filtros</p>
     <ul class="filter__list">
       <p class="filter__label color-gray-dark text--overline">plataformas</p>
-      <li class="filter__list-item" v-for="(item) in filtersItem" :key="item.value">
+      <li class="filter__list-item" v-for="item in filtersItem" :key="item.value">
         <button
           class="filter__btn color-gray-dark text--body"
-          :class="{'is-active': item.value === filterSelected}"
+          :class="{ 'is-active': item.value === filterSelected }"
           v-on:click="emitFilterChosen(item.value)"
         >
           <img class="filter__img" :src="item.icon" :alt="item.name" />
-          {{item.name}}
+          {{ item.name }}
         </button>
       </li>
     </ul>
@@ -62,6 +62,9 @@ export default class CardsFilter extends Vue {
 <style lang="scss" scoped>
 .filter {
   width: 220px;
+  height: 100%;
+  position: sticky;
+  top: 92px;
 
   &__title {
     /* border-width: 3px; */

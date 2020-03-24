@@ -1,6 +1,6 @@
 <template>
   <card>
-    <instagram-embed :url="'https://www.instagram.com/p/Bs_yHwHBjKo/'" :max-width="500" />
+    <instagram-embed :url="'https://www.instagram.com/p/Bs_yHwHBjKo/'" :max-width="498" />
   </card>
 </template>
 

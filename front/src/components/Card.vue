@@ -15,7 +15,9 @@ export default class Card extends Vue {}
 
 <style lang="scss" scoped>
 .card {
-  width: 100%;
-  max-width: 570px;
+  iframe {
+    width: 100%;
+    max-width: 570px;
+  }
 }
 </style>

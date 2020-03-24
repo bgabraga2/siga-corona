@@ -1,10 +1,10 @@
 <template>
-  <section class="cards">
+  <section class="section-cards">
     <div class="container">
-      <div class="cards__content d-flex justify-content-start">
+      <div class="section-cards__content d-flex justify-content-start">
         <cards-filter @emit-filter-chosen="handleFilterChange" />
         <pre></pre>
-        <div class="cards__itens">
+        <div class="section-cards__itens">
           <card-twitter />
           <card-youtube />
           <card-instagram />
@@ -37,6 +37,7 @@ export default class SectionCards extends Vue {
 .cards {
   &__itens {
     margin-left: 60px;
+    width: 100%;
   }
 }
 </style>
