@@ -1,6 +1,6 @@
 import Twitter from "twitter";
 import Post from "../database/models/Post";
-import { twitterAccounts } from "../data/data";
+import { twitterAccounts, twitterSpecialWords } from "../data/data";
 import logger from "node-color-log";
 
 export class TwitterHandler {
@@ -48,14 +48,7 @@ export class TwitterHandler {
   }
 
   isAboutCovid(tweetText: string) {
-    const specialWords = [
-      "covid-19",
-      "covid",
-      "#coronavirus",
-      "#covid-19",
-      "#covid19",
-      "corona"
-    ];
+    const specialWords = twitterSpecialWords;
 
     let isAbout = false;
     specialWords.forEach(word => {
