@@ -3,6 +3,7 @@ import Post from "../database/models/Post";
 import { youtubeChannels, youtubeSpecialWords } from "../data/data";
 import logger from "node-color-log";
 import YoutubeClient from "youtube-channel-videos";
+import moment from "moment";
 
 export class YoutubeHandler {
   youtube_api: any;
@@ -34,6 +35,7 @@ export class YoutubeHandler {
   async saveVideo(videoObj: any) {
     return await Post.create({
       type: "youtube",
+      date: videoObj.snippet.publishedAt,
       user: videoObj.snippet.channelTitle,
       url: `${this.videoUrlBase}${videoObj.id.videoId}`,
       socialId: videoObj.id.videoId,

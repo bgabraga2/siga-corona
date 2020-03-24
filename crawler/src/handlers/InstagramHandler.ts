@@ -2,6 +2,7 @@ import Post from "../database/models/Post";
 const instagramPosts = require("instagram-posts");
 import { instagramAccounts, instagramSpecialWords } from "../data/data";
 import logger from "node-color-log";
+import moment from "moment-timezone";
 
 export class InstagramHandler {
   constructor() {}
@@ -28,6 +29,10 @@ export class InstagramHandler {
   async saveInstagramPost(instagramPost: any) {
     return await Post.create({
       type: "instagram",
+      date: moment
+        .unix(instagramPost.time)
+        .tz("America/Sao_Paulo")
+        .toDate(),
       user: instagramPost.username,
       url: instagramPost.url,
       socialId: instagramPost.id,
