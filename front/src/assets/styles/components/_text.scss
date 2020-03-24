@@ -1,24 +1,21 @@
 .text {
-  &--default {
-    @include fontAlpha(16px, 500);
-    line-height: 20px;
-    @include media-breakpoint-up(lg) {
-      font-size: 18px;
-      line-height: 30px;
-    }
+  &--body {
+    @include fontRegular(18px);
   }
 
-  &--md {
-    @include fontAlpha(14px, 500);
-    line-height: 20px;
-    @include media-breakpoint-up(lg) {
-      font-size: 16px;
-      line-height: 24px;
-    }
+  &--body-sm {
+    @include fontRegular(14px);
   }
 
-  &--sm {
-    @include fontAlpha(12px, 500);
-    line-height: 16px;
+  &--caption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  &--overline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
   }
 }

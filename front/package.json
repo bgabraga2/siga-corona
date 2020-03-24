@@ -9,6 +9,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@types/node": "^13.9.3",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",

@@ -2,15 +2,25 @@
 
 $black: #000000;
 $white: #ffffff;
+$gray-light: #EAEAEA;
+$gray-dark: #323232;
+$gray-medium: #848484;
+$green: #1EF58E;
 $transparent: transparent;
+$grandient-horizontal: linear-gradient(90deg, #1EF58E 0%, #0BFF98 0.01%, rgba(11, 255, 152, 0.05) 100%);
+$grandient-vertical: linear-gradient(180deg, #1EF58E 0%, #0BFF98 0.01%, rgba(30, 245, 142, 0.05) 100%);
 
-$colors: (
-  'white': #ffffff,
+
+$colors: ('white': #ffffff,
   'black': #000000,
-  'transparent': transparent
-);
+  'gray-light': #EAEAEA,
+  'gray-dark': #323232,
+  'gray-medium': #848484,
+  'green': #1EF58E,
+  'transparent': transparent);
 
-@each $name, $hash in $colors {
+@each $name,
+$hash in $colors {
   .bg-#{$name} {
     background-color: $hash;
   }
@@ -33,53 +43,25 @@ $colors: (
 $spacer: 5px;
 $spacers: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
-$spacers: map-merge(
-  (
-    0: 0,
-    1: (
-      $spacer * 1
-    ),
-    2: (
-      $spacer * 2
-    ),
-    3: (
-      $spacer * 3
-    ),
-    4: (
-      $spacer * 4
-    ),
-    5: (
-      $spacer * 5
-    ),
-    6: (
-      $spacer * 6
-    ),
-    7: (
-      $spacer * 7
-    ),
-    8: (
-      $spacer * 8
-    ),
-    9: (
-      $spacer * 9
-    ),
-    10: (
-      $spacer * 10
-    )
-  ),
-  $spacers
-);
+$spacers: map-merge((0: 0,
+    1: ($spacer * 1),
+    2: ($spacer * 2),
+    3: ($spacer * 3),
+    4: ($spacer * 4),
+    5: ($spacer * 5),
+    6: ($spacer * 6),
+    7: ($spacer * 7),
+    8: ($spacer * 8),
+    9: ($spacer * 9),
+    10: ($spacer * 10)),
+  $spacers);
 
 // This variable affects the `.h-*` and `.w-*` classes.
 $sizes: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
-$sizes: map-merge(
-  (
-    25: 25%,
+$sizes: map-merge((25: 25%,
     50: 50%,
     75: 75%,
     100: 100%,
-    auto: auto
-  ),
-  $sizes
-);
+    auto: auto),
+  $sizes);

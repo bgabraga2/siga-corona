@@ -1,6 +1,6 @@
 <template>
   <card>
-    <youtube :video-id="videoId"></youtube>
+    <youtube :video-id="videoId" player-width="498"></youtube>
   </card>
 </template>
 
