@@ -1,5 +1,43 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap');
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('./assets/fonts/SFProDisplay-Heavy.eot');
+  src: url('./assets/fonts/SFProDisplay-Heavy.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/SFProDisplay-Heavy.woff2') format('woff2'),
+    url('./assets/fonts/SFProDisplay-Heavy.woff') format('woff'),
+    url('./assets/fonts/SFProDisplay-Heavy.ttf') format('truetype'),
+    url('./assets/fonts/SFProDisplay-Heavy.svg#SFProDisplay-Heavy') format('svg');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('./assets/fonts/SFProDisplay-Regular.eot');
+  src: url('./assets/fonts/SFProDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/SFProDisplay-Regular.woff2') format('woff2'),
+    url('./assets/fonts/SFProDisplay-Regular.woff') format('woff'),
+    url('./assets/fonts/SFProDisplay-Regular.ttf') format('truetype'),
+    url('./assets/fonts/SFProDisplay-Regular.svg#SFProDisplay-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('./assets/fonts/SFProDisplay-Bold.eot');
+  src: url('./assets/fonts/SFProDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/SFProDisplay-Bold.woff2') format('woff2'),
+    url('./assets/fonts/SFProDisplay-Bold.woff') format('woff'),
+    url('./assets/fonts/SFProDisplay-Bold.ttf') format('truetype'),
+    url('./assets/fonts/SFProDisplay-Bold.svg#SFProDisplay-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
+
+
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'SF Pro Display', sans-serif;
 }

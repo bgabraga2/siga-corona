@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="card">
     <slot></slot>
   </div>
 </template>
@@ -14,4 +14,8 @@ export default class Card extends Vue {}
 </script>
 
 <style lang="scss" scoped>
+.card {
+  width: 100%;
+  max-width: 570px;
+}
 </style>

@@ -1,17 +1,21 @@
 @import '../../../node_modules/bootstrap/scss/mixins';
 
-@mixin fontAlpha($px, $weight) {
-  font-family: 'Lays';
+@mixin fontRegular($px) {
+  font-weight: 400;
   font-size: $px;
+  font-family: 'SF Pro Display', sans-serif;
+}
 
-  @if $weight==500 {
-    font-weight: 500;
-  }
+@mixin fontBold($px) {
+  font-weight: 700;
+  font-size: $px;
+  font-family: 'SF Pro Display', sans-serif;
+}
 
-  @if $weight==700 {
-    font-weight: 700;
-    font-family: 'Lays Bold';
-  }
+@mixin fontHeavy($px) {
+  font-weight: 900;
+  font-size: $px;
+  font-family: 'SF Pro Display', sans-serif;
 }
 
 @mixin below($size) {

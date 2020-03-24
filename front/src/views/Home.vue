@@ -1,6 +1,5 @@
 <template>
   <main>
-    <h1>HOME</h1>
     <section-cards />
   </main>
 </template>
