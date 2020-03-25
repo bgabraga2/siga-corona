@@ -1,5 +1,5 @@
 <template>
-  <card>
+  <card class="card-instagram">
     <instagram-embed :url="'https://www.instagram.com/p/Bs_yHwHBjKo/'" :max-width="498" />
   </card>
 </template>
@@ -17,4 +17,16 @@ export default class CardYoutube extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.card-instagram {
+  & > div {
+    width: 498px;
+  }
+  iframe {
+    margin: 0 auto;
+    min-width: 100% !important;
+    margin: 0 auto !important;
+    border: 0 !important;
+  }
+}
+</style>

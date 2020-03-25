@@ -1,5 +1,5 @@
 <template>
-  <card>
+  <card class="card-youtube">
     <youtube :video-id="videoId" player-width="498"></youtube>
   </card>
 </template>
@@ -16,4 +16,10 @@ export default class CardYoutube extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.card-youtube {
+  iframe {
+    width: 100%;
+  }
+}
+</style>

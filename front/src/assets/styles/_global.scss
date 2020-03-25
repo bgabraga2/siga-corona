@@ -11,5 +11,9 @@ body {
 }
 
 main {
-  padding-top: 92px;
+  padding-top: 72px;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 92px;
+  }
 }

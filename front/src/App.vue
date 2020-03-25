@@ -2,7 +2,7 @@
   <div id="app">
     <the-header />
     <router-view />
-    <the-footer />
+    <!-- <the-footer /> -->
   </div>
 </template>
 

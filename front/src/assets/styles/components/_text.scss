@@ -3,6 +3,10 @@
     @include fontRegular(18px);
   }
 
+  &--subtitle {
+    @include fontRegular(16px);
+  }
+
   &--body-sm {
     @include fontRegular(14px);
   }

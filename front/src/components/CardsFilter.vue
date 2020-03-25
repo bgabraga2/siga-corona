@@ -1,5 +1,5 @@
 <template>
-  <div class="filter">
+  <div class="filter d-none d-lg-block">
     <p class="filter__title color-gray-dark title--h6">Filtros</p>
     <ul class="filter__list">
       <p class="filter__label color-gray-dark text--overline">plataformas</p>
