@@ -7,7 +7,7 @@ declare module 'vue-infinite-loading';
 
 declare module 'api-client' {
   export interface Api {
-    getPosts: (offset: number) => Promise<IGetPostReturn>;
+    getPosts: (offset: number, type: string) => Promise<IGetPostReturn>;
     getPost: (id: string) => Promise<IPost>;
   }
 

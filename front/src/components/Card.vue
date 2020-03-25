@@ -47,7 +47,6 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-// import { IconInstagram } from '@/assets/images/icon-instagram.svg';
 import moment from 'moment-timezone';
 
 @Component({
@@ -60,7 +59,18 @@ export default class Card extends Vue {
   @Prop() id!: string;
 
   shareUrl(socialNetwork: string) {
-    return this.id;
+    const url = encodeURIComponent(`${window.location.href}posts/${this.id}`);
+
+    switch (socialNetwork) {
+      case 'whatsapp':
+        return `whatsapp://send?text=${url}`;
+      case 'twitter':
+        return `https://twitter.com/intent/tweet?text=${url}`;
+      case 'facebook':
+        return `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+      default:
+        return url;
+    }
   }
 }
 </script>
@@ -78,7 +88,6 @@ export default class Card extends Vue {
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
     overflow: hidden;
     border-radius: 4px;
-    width: 100%;
   }
 
   &__social {

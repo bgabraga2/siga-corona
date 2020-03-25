@@ -12,7 +12,7 @@ const state = {
 };
 
 const getters = {
-  getPosts: (state: { allPosts: IPost[] }) => {
+  getPosts: (state: { allPosts: IPost[]; filterType: string }) => {
     return state.allPosts;
   },
   getOffset: (state: { limit: number; offset: number }) => {
@@ -30,17 +30,23 @@ const mutations = {
   setErrorMsg(state: { errorMsg: string }, errorMsg: string) {
     state.errorMsg = errorMsg;
   },
+  setFilterType(state: { filterType: string }, filter: string) {
+    state.filterType = filter;
+  },
   setAllPosts(state: { allPosts: any }, res: IGetPostReturn) {
     state.allPosts.push(...res.posts);
   },
   setTotal(state: { total: number }, res: IGetPostReturn) {
     state.total = res.total;
   },
-  setLimit(state: { limit: number }, res: IGetPostReturn) {
-    state.limit = res.limit;
+  setLimit(state: { limit: number }, res: number) {
+    state.limit = res;
   },
-  setOffset(state: { offset: number }, res: IGetPostReturn) {
-    state.offset = res.offset;
+  setOffset(state: { offset: number }, res: number) {
+    state.offset = res;
+  },
+  deletePosts(state: { allPosts: any }) {
+    state.allPosts = [];
   }
 };
 
@@ -49,13 +55,13 @@ const actions = {
     return new Promise((resolve, reject) => {
       context.commit('setGettingPosts', true);
       api
-        .getPosts(context.getters.getOffset)
+        .getPosts(context.getters.getOffset, context.state.filterType)
         .then((res: IGetPostReturn) => {
           context.commit('setGettingPosts', false);
           context.commit('setAllPosts', res);
           context.commit('setTotal', res);
-          context.commit('setLimit', res);
-          context.commit('setOffset', res);
+          context.commit('setLimit', res.limit);
+          context.commit('setOffset', res.offset);
           resolve();
         })
         .catch(error => {
@@ -63,6 +69,13 @@ const actions = {
           reject();
         });
     });
+  },
+  setFilterType({ commit, dispatch }: any, payload: string) {
+    commit('setFilterType', payload);
+    commit('setOffset', 0);
+    commit('setLimit', 0);
+    commit('deletePosts');
+    dispatch('getPosts');
   }
 };
 

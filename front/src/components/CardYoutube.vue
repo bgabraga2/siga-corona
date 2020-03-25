@@ -29,6 +29,8 @@ export default class CardYoutube extends Vue {
 .card-youtube {
   iframe {
     width: 100%;
+    min-width: 498px;
+    max-width: 100%;
   }
 }
 </style>

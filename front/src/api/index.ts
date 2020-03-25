@@ -6,8 +6,9 @@ const axiosInstance = axios.create({
 });
 
 const Api: Api = {
-  async getPosts(skip) {
-    const res = await axiosInstance.get(`/posts?offset=${skip}`);
+  async getPosts(skip, type) {
+    const url = type ? `/posts?offset=${skip}&type=${type}` : `/posts?offset=${skip}`;
+    const res = await axiosInstance.get(url);
     return res.data;
   },
 

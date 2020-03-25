@@ -42,7 +42,7 @@ export default class CardsFilter extends Vue {
     {
       name: 'Instagram',
       icon: require('@/assets/images/icon-instagram.svg'),
-      value: 'instragram'
+      value: 'instagram'
     },
     {
       name: 'Youtube',

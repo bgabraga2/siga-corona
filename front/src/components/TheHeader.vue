@@ -2,10 +2,10 @@
   <header class="header bg-gray-dark">
     <div class="container">
       <div class="header__content">
-        <h1 class="header__title color-white">
-          <span class="header__hash">#</span>SigaCorona
-        </h1>
-        <a href class="header__link color-green">+ INFO</a>
+        <router-link to="/">
+          <h1 class="header__title color-white"><span class="header__hash">#</span>SigaCorona</h1>
+        </router-link>
+        <!-- <a href class="header__link color-green">+ INFO</a> -->
       </div>
     </div>
   </header>
