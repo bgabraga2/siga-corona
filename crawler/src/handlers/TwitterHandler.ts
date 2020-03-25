@@ -39,6 +39,7 @@ export class TwitterHandler {
   async saveTweet(tweetObj: any) {
     return await Post.create({
       type: "twitter",
+      date: tweetObj.created_at,
       user: tweetObj.user.screen_name,
       url: `${this.tweetUrlBase}/${tweetObj.id}`,
       socialId: tweetObj.id,

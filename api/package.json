@@ -4,13 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "set NODE_ENV=development&&ts-node-dev --respawn --transpileOnly src/server.ts"
+    "dev:nodemon": "node --inspect=5858 -r ts-node/register ./src/server.ts",
+    "dev": "nodemon"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
     "@types/cors": "^2.8.6",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.3",
+    "@types/mongoose": "^5.7.7",
+    "@types/mongoose-paginate": "^5.0.8",
+    "nodemon": "^2.0.2",
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.8.3"
   },
@@ -20,6 +24,8 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-validator": "^6.4.0"
+    "express-validator": "^6.4.0",
+    "mongoose": "^5.9.6",
+    "mongoose-paginate": "^5.0.3"
   }
 }
