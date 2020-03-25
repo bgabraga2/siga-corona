@@ -33,8 +33,8 @@ class Posts {
     const type = req.query.type || '';
 
     let posts;
-    if (type) posts = await PostModel.paginate({ type }, { offset, limit });
-    else posts = await PostModel.paginate({}, { offset, limit });
+    if (type) posts = await PostModel.paginate({ type }, { offset, limit, sort: { date: -1 } });
+    else posts = await PostModel.paginate({}, { offset, limit, sort: { date: -1 } });
 
     res.json({
       posts: posts.docs,
