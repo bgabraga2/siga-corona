@@ -1,9 +1,8 @@
 <template>
   <section class="section-cards">
     <div class="container">
-      <div class="section-cards__content d-flex justify-content-start">
+      <div class="section-cards__content d-flex justify-content-center">
         <cards-filter @emit-filter-chosen="handleFilterChange" />
-        <pre></pre>
         <div class="section-cards__itens">
           <card-twitter />
           <card-youtube />
@@ -34,10 +33,13 @@ export default class SectionCards extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.cards {
+.section-cards {
   &__itens {
-    margin-left: 60px;
-    width: 100%;
+    margin: 15px auto 0;
+
+    @include media-breakpoint-down(lg) {
+      max-width: 100%;
+    }
   }
 }
 </style>

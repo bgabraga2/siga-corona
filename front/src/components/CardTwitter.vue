@@ -15,4 +15,8 @@ import Card from '@/components/Card.vue';
 export default class CardTwitter extends Vue {}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+.twitter-tweet {
+  margin: 0 !important;
+}
+</style>

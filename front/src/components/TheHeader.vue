@@ -5,7 +5,7 @@
         <h1 class="header__title color-white">
           <span class="header__hash">#</span>SigaCorona
         </h1>
-        <a href class="header__link color-white">+ INFO</a>
+        <a href class="header__link color-green">+ INFO</a>
       </div>
     </div>
   </header>
@@ -47,7 +47,11 @@ export default class TheHeader extends Vue {}
   }
 
   &__title {
-    @include fontHeavy(24px);
+    @include fontHeavy(18px);
+
+    @include media-breakpoint-up(lg) {
+      @include fontHeavy(24px);
+    }
   }
 }
 </style>
