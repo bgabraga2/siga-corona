@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "cross-env NODE_ENV=local ts-node-dev ./src/server.ts",
     "build-ts": "tsc",
-    "postinstall": "yarn build-ts",
+    "postinstall": "npm run build-ts",
     "start": "node ./dist/server.js",
     "deploy": "cd .. && git subtree push --prefix crawler heroku-crawler master"
   },
