@@ -3,11 +3,17 @@ import mongoosePaginate from "mongoose-paginate";
 
 export interface IPost extends Document {}
 
+export enum PostTypes {
+  'twitter',
+  'instagram',
+  'youtube'
+}
+
 const schema = new Schema(
   {
     type: {
       type: String,
-      enum: ['twitter', 'instagram', 'youtube'],
+      enum: Object.values(PostTypes),
       required: true
     },
     user: {

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { validationResult, query, param } from "express-validator";
-import PostModel from "../database/models/Post";
+import PostModel, { PostTypes } from '../database/models/Post';
 
 class Posts {
   static listValidations = [
@@ -13,7 +13,11 @@ class Posts {
     query('offset')
       .optional()
       .isInt({ min: 0 })
-      .withMessage(`O parâmetro offset deve ser no mínimo 0`)
+      .withMessage(`O parâmetro offset deve ser no mínimo 0`),
+    query('type')
+      .optional()
+      .isIn(Object.values(PostTypes))
+      .withMessage(`O parâmetro type deve ser twitter, instagram ou youtube`)
   ];
 
   static async list(req: Request, res: Response) {
@@ -26,7 +30,11 @@ class Posts {
       parseInt(req.query.limit) || parseInt(process.env.PAGINATION_MAX_RESULTS);
     const offset = parseInt(req.query.offset) || 0;
 
-    const posts = await PostModel.paginate({}, { offset, limit });
+    const type = req.query.type || '';
+
+    let posts;
+    if (type) posts = await PostModel.paginate({ type }, { offset, limit });
+    else posts = await PostModel.paginate({}, { offset, limit });
 
     res.json({
       posts: posts.docs,
