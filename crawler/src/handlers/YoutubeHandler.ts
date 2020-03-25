@@ -73,7 +73,7 @@ export class YoutubeHandler {
                 await this.saveVideo(video);
             })
             .catch(err => {
-              console.error(`Erro ao pegar tweets do usuário ${account}`, err);
+              console.error(`Erro ao pegar vídeos do canal ${account}`, err);
             });
         });
       }
