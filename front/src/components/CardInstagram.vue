@@ -16,12 +16,8 @@ import { IPost } from 'api-client';
 export default class CardYoutube extends Vue {
   @Prop() post!: IPost;
 
-  mounted() {
-    console.log('FULL JSON', this.fullJson);
-  }
-
   get createdPostData() {
-    return 'xablau';
+    return this.post.date;
   }
 
   get fullJson() {

@@ -12,6 +12,12 @@ Vue.use(VueMoment, {
 });
 Vue.use(VueYouTubeEmbed);
 
+Vue.use(InfiniteLoading, {
+  slots: {
+    noMore:
+      'Ops, você chegou até o final da página. A cada 15 minutos estaremos atualizando as informações. Fique ligado #SigaCorona'
+  }
+});
 Vue.config.productionTip = false;
 
 new Vue({

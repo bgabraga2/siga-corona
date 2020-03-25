@@ -21,7 +21,7 @@ export default class CardTwitter extends Vue {
   }
 
   get createdPostData() {
-    return this.fullJson.created_at;
+    return this.post.date;
   }
 
   get fullJson() {

@@ -46,7 +46,6 @@ const mutations = {
 
 const actions = {
   getPosts(context: any) {
-    console.log(context);
     return new Promise((resolve, reject) => {
       context.commit('setGettingPosts', true);
       api

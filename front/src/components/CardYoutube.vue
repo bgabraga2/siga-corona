@@ -16,7 +16,7 @@ export default class CardYoutube extends Vue {
   @Prop() post!: IPost;
 
   get createdPostData() {
-    return this.fullJson.snippet.publishedAt;
+    return this.post.date;
   }
 
   get fullJson() {
