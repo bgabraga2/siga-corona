@@ -1,18 +1,33 @@
 <template>
-  <card>
-    <tweet id="692527862369357824"></tweet>
+  <card :type="post.type" :author="post.user" :date="createdPostData" :id="post._id">
+    <tweet :id="tweetId"></tweet>
   </card>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import { Tweet, Moment, Timeline } from 'vue-tweet-embed';
 import Card from '@/components/Card.vue';
+import { IPost } from 'api-client';
 
 @Component({
   components: { Tweet, Card }
 })
-export default class CardTwitter extends Vue {}
+export default class CardTwitter extends Vue {
+  @Prop() post!: IPost;
+
+  get tweetId() {
+    return this.fullJson.id_str;
+  }
+
+  get createdPostData() {
+    return this.fullJson.created_at;
+  }
+
+  get fullJson() {
+    return JSON.parse(this.post.fullJson);
+  }
+}
 </script>
 
 <style lang="scss">

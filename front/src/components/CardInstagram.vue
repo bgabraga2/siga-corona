@@ -1,19 +1,32 @@
 <template>
-  <card class="card-instagram">
-    <instagram-embed :url="'https://www.instagram.com/p/Bs_yHwHBjKo/'" :max-width="498" />
+  <card class="card-instagram" :type="post.type" :author="post.user" :date="createdPostData" :id="post._id">
+    <instagram-embed :url="post.url" :max-width="498" />
   </card>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import Card from '@/components/Card.vue';
 import InstagramEmbed from 'vue-instagram-embed';
+import { IPost } from 'api-client';
 
 @Component({
   components: { Card, InstagramEmbed }
 })
 export default class CardYoutube extends Vue {
-  videoId = 'HXmt0j1gtDU';
+  @Prop() post!: IPost;
+
+  mounted() {
+    console.log('FULL JSON', this.fullJson);
+  }
+
+  get createdPostData() {
+    return 'xablau';
+  }
+
+  get fullJson() {
+    return JSON.parse(this.post.fullJson);
+  }
 }
 </script>
 

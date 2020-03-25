@@ -1,15 +1,21 @@
 declare module 'vue-tweet-embed';
 declare module 'vue-youtube-embed';
 declare module 'vue-instagram-embed';
+declare module 'moment-timezone';
+declare module 'vue-moment';
+declare module 'vue-infinite-loading';
 
 declare module 'api-client' {
   export interface Api {
-    getPosts: () => Promise<IGetPostReturn>;
+    getPosts: (offset: number) => Promise<IGetPostReturn>;
     getPost: (id: string) => Promise<IPost>;
   }
 
   export interface IGetPostReturn {
     posts: IPost[];
+    total: number;
+    limit: number;
+    offset: number;
   }
 
   export interface IPost {

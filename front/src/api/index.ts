@@ -6,10 +6,11 @@ const axiosInstance = axios.create({
 });
 
 const Api: Api = {
-  async getPosts() {
-    const res = await axiosInstance.get('/posts');
+  async getPosts(skip) {
+    const res = await axiosInstance.get(`/posts?offset=${skip}`);
     return res.data;
   },
+
   async getPost(id) {
     const res = await axiosInstance.get(`/posts/${id}`);
     return res.data;

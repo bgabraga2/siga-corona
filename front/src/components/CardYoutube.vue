@@ -1,18 +1,27 @@
 <template>
-  <card class="card-youtube">
-    <youtube :video-id="videoId" player-width="498"></youtube>
+  <card class="card-youtube" :type="post.type" :author="post.user" :date="createdPostData" :id="post._id">
+    <youtube :video-id="post.socialId" player-width="498"></youtube>
   </card>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import Card from '@/components/Card.vue';
+import { IPost } from 'api-client';
 
 @Component({
   components: { Card }
 })
 export default class CardYoutube extends Vue {
-  videoId = 'HXmt0j1gtDU';
+  @Prop() post!: IPost;
+
+  get createdPostData() {
+    return this.fullJson.snippet.publishedAt;
+  }
+
+  get fullJson() {
+    return JSON.parse(this.post.fullJson);
+  }
 }
 </script>
 

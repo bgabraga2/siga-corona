@@ -5,26 +5,37 @@
     </div>
     <aside class="card__aside">
       <div class="card__info">
-        <img class="card__social" :src="require('@/assets/images/icon-instagram.svg')" alt />
-        <p class="card__author color-gray-dark text--subtitle">@digital_archive</p>
-        <p class="card__date color-gray-medium text--caption">05/04/2019</p>
-        <p class="card__time color-gray-medium text--caption">19:09</p>
+        <img
+          class="card__social"
+          :src="require(`@/assets/images/icon-instagram.svg`)"
+          alt
+          v-if="type === 'instagram'"
+        />
+        <img class="card__social" :src="require(`@/assets/images/icon-twitter.svg`)" alt v-if="type === 'twitter'" />
+        <img class="card__social" :src="require(`@/assets/images/icon-youtube.svg`)" alt v-if="type === 'youtube'" />
+        <p class="card__author color-gray-dark text--subtitle">{{ author }}</p>
+        <p class="card__date color-gray-medium text--caption">
+          {{ date | moment('timezone', 'America/Sao_Paulo', 'DD/MM/YYYY') }}
+        </p>
+        <p class="card__time color-gray-medium text--caption">
+          {{ date | moment('timezone', 'America/Sao_Paulo', 'h:mm') }}
+        </p>
       </div>
       <div class="card__share">
         <p class="card__author color-gray-dark text--caption">compartilhe:</p>
         <ul class="card__list">
           <li class="card__list-item">
-            <a href target="_blank">
+            <a :href="shareUrl('whatsapp')" target="_blank">
               <img :src="require('@/assets/images/icon-whatsapp.svg')" alt />
             </a>
           </li>
           <li class="card__list-item">
-            <a href target="_blank">
+            <a :href="shareUrl('twitter')" target="_blank">
               <img :src="require('@/assets/images/icon-twitter.svg')" alt />
             </a>
           </li>
           <li class="card__list-item">
-            <a href target="_blank">
+            <a :href="shareUrl('facebook')" target="_blank">
               <img :src="require('@/assets/images/icon-facebook.svg')" alt />
             </a>
           </li>
@@ -35,12 +46,23 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
+// import { IconInstagram } from '@/assets/images/icon-instagram.svg';
+import moment from 'moment-timezone';
 
 @Component({
   components: {}
 })
-export default class Card extends Vue {}
+export default class Card extends Vue {
+  @Prop() type!: string;
+  @Prop() author!: string;
+  @Prop() date!: string | Date;
+  @Prop() id!: string;
+
+  shareUrl(socialNetwork: string) {
+    return this.id;
+  }
+}
 </script>
 
 <style lang="scss" scoped>
