@@ -1,8 +1,9 @@
 import { Router } from "express";
-import Init, { InitValidate } from "./controllers/Init";
+import Posts from "./controllers/Post";
 
 const routes = Router();
 
-routes.get("/", InitValidate, Init.home);
+routes.get('/posts', Posts.listValidations, Posts.list);
+routes.get('/posts/:id', Posts.findOneValidations, Posts.findOne);
 
 export default routes;

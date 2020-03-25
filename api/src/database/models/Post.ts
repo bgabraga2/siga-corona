@@ -1,5 +1,5 @@
-import { Document, Schema } from "mongoose";
-import mongoose from "mongoose";
+import mongoose, { Document, Schema } from "mongoose";
+import mongoosePaginate from "mongoose-paginate";
 
 export interface IPost extends Document {}
 
@@ -7,7 +7,7 @@ const schema = new Schema(
   {
     type: {
       type: String,
-      enum: ["twitter", "instagram", "youtube"],
+      enum: ['twitter', 'instagram', 'youtube'],
       required: true
     },
     user: {
@@ -42,10 +42,12 @@ const schema = new Schema(
       required: false
     }
   },
-  { 
+  {
     timestamps: true,
-    versionKey: false 
+    versionKey: false
   }
 );
+
+schema.plugin(mongoosePaginate);
 
 export default mongoose.model<IPost>("Post", schema);
