@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/node": "^13.9.3",
+    "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
@@ -19,7 +20,8 @@
     "vue-router": "^3.1.5",
     "vue-tweet-embed": "^2.4.0",
     "vue-youtube-embed": "^2.2.2",
-    "vuex": "^3.1.2"
+    "vuex": "^3.1.2",
+    "vuex-class": "^0.3.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.2.0",
