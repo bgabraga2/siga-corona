@@ -8,7 +8,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "postinstall": "yarn build",
-    "deploy": "cd .. && git subtree push --prefix crawler heroku-front master"
+    "deploy": "cd .. && git subtree push --prefix front heroku-front master"
   },
   "dependencies": {
     "@types/node": "^13.9.3",
