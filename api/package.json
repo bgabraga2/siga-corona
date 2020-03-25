@@ -7,7 +7,7 @@
     "dev:nodemon": "node --inspect=5858 -r ts-node/register ./src/server.ts",
     "dev": "nodemon",
     "build-ts": "tsc",
-    "postinstall": "yarn build-ts",
+    "postinstall": "npm run build-ts",
     "start": "node ./dist/server.js",
     "deploy": "cd .. && git subtree push --prefix api heroku-back master"
   },
