@@ -22,4 +22,11 @@ const router = new VueRouter({
   routes
 });
 
+router.beforeEach((to, from, next) => {
+  router.app.$gtm.sendCustomEvent('virtual-page-view', {
+    page: to.path
+  });
+  return next();
+});
+
 export default router;

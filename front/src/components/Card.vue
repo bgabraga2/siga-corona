@@ -25,17 +25,17 @@
         <p class="card__author color-gray-dark text--caption">compartilhe:</p>
         <ul class="card__list">
           <li class="card__list-item">
-            <a :href="shareUrl('whatsapp')" target="_blank">
+            <a :href="shareUrl('whatsapp')" @click="gtmHandle('whatsapp')" target="_blank">
               <img :src="require('@/assets/images/icon-whatsapp.svg')" alt />
             </a>
           </li>
           <li class="card__list-item">
-            <a :href="shareUrl('twitter')" target="_blank">
+            <a :href="shareUrl('twitter')" @click="gtmHandle('twitter')" target="_blank">
               <img :src="require('@/assets/images/icon-twitter.svg')" alt />
             </a>
           </li>
           <li class="card__list-item">
-            <a :href="shareUrl('facebook')" target="_blank">
+            <a :href="shareUrl('facebook')" @click="gtmHandle('facebook')" target="_blank">
               <img :src="require('@/assets/images/icon-facebook.svg')" alt />
             </a>
           </li>
@@ -57,6 +57,14 @@ export default class Card extends Vue {
   @Prop() author!: string;
   @Prop() date!: string | Date;
   @Prop() id!: string;
+  $gtm!: {
+    sendCustomEvent: Function;
+  };
+
+  gtmHandle(social) {
+    this.$gtm.sendCustomEvent('link-shared', { name: this.id });
+    this.$gtm.sendCustomEvent('social-share', { name: social });
+  }
 
   shareUrl(socialNetwork: string) {
     const url = encodeURIComponent(`${window.location.href}posts/${this.id}`);

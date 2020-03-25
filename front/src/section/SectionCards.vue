@@ -36,19 +36,28 @@ export default class SectionCards extends Vue {
   @Getter('haveMorePost') haveMorePost: any;
   @Action('getPosts') getPosts: any;
   @Action('setFilterType') setFilterType: any;
+  $gtm!: {
+    sendCustomEvent: Function;
+  };
 
   handleFilterChange(filter: string) {
     this.filterSelected = this.filterSelected === filter ? '' : filter;
     this.setFilterType(this.filterSelected);
     this.infiniteId += 1;
+    
+    if (filter) {
+      this.$gtm.sendCustomEvent('click-filter', { name: this.filterSelected });
+    }
   }
 
   infiniteHandler($state: any) {
     this.getPosts().then(() => {
       if (this.haveMorePost) {
         $state.loaded();
+        this.$gtm.sendCustomEvent('user-scroll', { name: 'loaded' });
       } else {
         $state.complete();
+        this.$gtm.sendCustomEvent('user-scroll', { name: 'complete' });
       }
     });
   }
