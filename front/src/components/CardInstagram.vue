@@ -1,6 +1,6 @@
 <template>
   <card class="card-instagram" :type="post.type" :author="post.user" :date="createdPostData" :id="post._id">
-    <instagram-embed :url="post.url" :max-width="498" />
+    <instagram-embed :url="post.url" :max-width="498" :hide-caption="false" />
   </card>
 </template>
 
@@ -30,7 +30,12 @@ export default class CardYoutube extends Vue {
 .card-instagram {
   & > div {
     width: 498px;
+
+    @include media-breakpoint-down(lg) {
+      width: 100%;
+    }
   }
+
   iframe {
     margin: 0 auto;
     min-width: 100% !important;

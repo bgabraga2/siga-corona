@@ -1,6 +1,8 @@
 <template>
-  <card :type="post.type" :author="post.user" :date="createdPostData" :id="post._id">
-    <tweet :id="tweetId"></tweet>
+  <card class="card-twitter" :type="post.type" :author="post.user" :date="createdPostData" :id="post._id">
+    <tweet :id="tweetId">
+      <loading :is-active="true" />
+    </tweet>
   </card>
 </template>
 
@@ -9,9 +11,10 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import { Tweet, Moment, Timeline } from 'vue-tweet-embed';
 import Card from '@/components/Card.vue';
 import { IPost } from 'api-client';
+import Loading from '@/components/Loading.vue';
 
 @Component({
-  components: { Tweet, Card }
+  components: { Tweet, Card, Loading }
 })
 export default class CardTwitter extends Vue {
   @Prop() post!: IPost;
@@ -31,6 +34,9 @@ export default class CardTwitter extends Vue {
 </script>
 
 <style lang="scss">
+.card-twitter {
+  position: relative;
+}
 .twitter-tweet {
   margin: 0 !important;
 }

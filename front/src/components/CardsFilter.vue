@@ -1,19 +1,26 @@
 <template>
-  <div class="filter d-none d-lg-block">
-    <p class="filter__title color-gray-dark title--h6">Filtros</p>
-    <ul class="filter__list">
-      <p class="filter__label color-gray-dark text--overline">plataformas</p>
-      <li class="filter__list-item" v-for="item in filtersItem" :key="item.value">
-        <button
-          class="filter__btn color-gray-dark text--body"
-          :class="{ 'is-active': item.value === filterSelected }"
-          v-on:click="emitFilterChosen(item.value)"
-        >
-          <img class="filter__img" :src="item.icon" :alt="item.name" />
-          {{ item.name }}
-        </button>
-      </li>
-    </ul>
+  <div>
+    <div class="filter" :class="{ 'is-active': filterActive }">
+      <p class="filter__title color-gray-dark title--h6">Filtros</p>
+      <ul class="filter__list">
+        <p class="filter__label color-gray-dark text--overline">plataformas</p>
+        <li class="filter__list-item" v-for="item in filtersItem" :key="item.value">
+          <button
+            class="filter__btn color-gray-dark text--body"
+            :class="{ 'is-active': item.value === filterSelected }"
+            v-on:click="emitFilterChosen(item.value)"
+          >
+            <img class="filter__img" :src="item.icon" :alt="item.name" />
+            {{ item.name }}
+          </button>
+        </li>
+      </ul>
+    </div>
+    <button
+      class="filter__mobile-btn d-lg-none"
+      :class="{ 'is-active': filterActive }"
+      v-on:click="toggleFilter"
+    ></button>
   </div>
 </template>
 
@@ -32,6 +39,11 @@ interface IFilterItem {
 })
 export default class CardsFilter extends Vue {
   filterSelected = '';
+  filterActive: boolean = false;
+
+  toggleFilter() {
+    this.filterActive = !this.filterActive;
+  }
 
   filtersItem: IFilterItem[] = [
     {
@@ -54,6 +66,7 @@ export default class CardsFilter extends Vue {
   @Emit()
   emitFilterChosen(value: string) {
     this.filterSelected = this.filterSelected === value ? '' : value;
+    this.filterActive = false;
     return this.filterSelected;
   }
 }
@@ -65,6 +78,24 @@ export default class CardsFilter extends Vue {
   height: 100%;
   position: sticky;
   top: 92px;
+
+  @include media-breakpoint-down(lg) {
+    position: fixed;
+    z-index: 15;
+    width: 100%;
+    height: 100%;
+    background: white;
+    top: 64px;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    padding: 150px 16px 0;
+
+    &.is-active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
 
   &__title {
     /* border-width: 3px; */
@@ -87,6 +118,11 @@ export default class CardsFilter extends Vue {
       height: 36px;
       margin-bottom: 15px;
       display: inline-block;
+    }
+
+    @include media-breakpoint-down(lg) {
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -114,6 +150,27 @@ export default class CardsFilter extends Vue {
   &__label {
     margin-top: 20px;
     margin-bottom: 10px;
+  }
+
+  &__mobile-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: $green;
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 3px 3px rgba(0, 0, 0, 0.14);
+    background-image: url('../assets/images/icon-open.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 15;
+
+    &.is-active {
+      background-image: url('../assets/images/icon-close.png');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
 }
 </style>

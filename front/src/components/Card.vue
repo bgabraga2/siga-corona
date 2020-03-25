@@ -61,7 +61,7 @@ export default class Card extends Vue {
     sendCustomEvent: Function;
   };
 
-  gtmHandle(social) {
+  gtmHandle(social: string) {
     this.$gtm.sendCustomEvent('link-shared', { name: this.id });
     this.$gtm.sendCustomEvent('social-share', { name: social });
   }
@@ -87,9 +87,13 @@ export default class Card extends Vue {
 .card {
   display: flex;
   margin-bottom: 35px;
+  flex: 0 0 660px;
+  max-width: 660px;
 
   @include media-breakpoint-down(lg) {
     flex-direction: column;
+    width: 100%;
+    max-width: 100%;
   }
 
   &__slot {
