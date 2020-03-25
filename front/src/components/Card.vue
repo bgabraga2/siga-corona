@@ -7,12 +7,22 @@
       <div class="card__info">
         <img
           class="card__social"
-          :src="require(`@/assets/images/icon-instagram.svg`)"
+          :src="require(`@/assets/images/icon-instagram-green.svg`)"
           alt
           v-if="type === 'instagram'"
         />
-        <img class="card__social" :src="require(`@/assets/images/icon-twitter.svg`)" alt v-if="type === 'twitter'" />
-        <img class="card__social" :src="require(`@/assets/images/icon-youtube.svg`)" alt v-if="type === 'youtube'" />
+        <img
+          class="card__social"
+          :src="require(`@/assets/images/icon-twitter-green.svg`)"
+          alt
+          v-if="type === 'twitter'"
+        />
+        <img
+          class="card__social"
+          :src="require(`@/assets/images/icon-youtube-green.svg`)"
+          alt
+          v-if="type === 'youtube'"
+        />
         <p class="card__author color-gray-dark text--subtitle">{{ author }}</p>
         <p class="card__date color-gray-medium text--caption">
           {{ date | moment('timezone', 'America/Sao_Paulo', 'DD/MM/YYYY') }}
