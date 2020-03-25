@@ -3,11 +3,17 @@ import mongoose from "mongoose";
 
 export interface IPost extends Document {}
 
+export enum PostTypes {
+  'twitter',
+  'instagram',
+  'youtube'
+}
+
 const schema = new Schema(
   {
     type: {
       type: String,
-      enum: ["twitter", "instagram", "youtube"],
+      enum: Object.values(PostTypes),
       required: true
     },
     user: {
@@ -42,9 +48,9 @@ const schema = new Schema(
       required: false
     }
   },
-  { 
+  {
     timestamps: true,
-    versionKey: false 
+    versionKey: false
   }
 );
 

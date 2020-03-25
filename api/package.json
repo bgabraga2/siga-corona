@@ -5,7 +5,11 @@
   "license": "MIT",
   "scripts": {
     "dev:nodemon": "node --inspect=5858 -r ts-node/register ./src/server.ts",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "build-ts": "tsc",
+    "postinstall": "npm run build-ts",
+    "start": "node ./dist/server.js",
+    "deploy": "cd .. && git subtree push --prefix api heroku-back master"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
