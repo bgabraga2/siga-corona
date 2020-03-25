@@ -1,6 +1,10 @@
 <template>
   <div>
     <div class="filter" :class="{ 'is-active': filterActive }">
+      <p class="color-gray-dark title--h6 lh14">
+        Um agregador de notícias compartilhadas por fontes confiáveis sobre o corona vírus, feito de forma 100%
+        automática através de um algoritmo! #SigaCorona
+      </p>
       <p class="filter__title color-gray-dark title--h6">Filtros</p>
       <ul class="filter__list">
         <p class="filter__label color-gray-dark text--overline">plataformas</p>
@@ -73,9 +77,16 @@ export default class CardsFilter extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.lh14 {
+  line-height: 1.4em;
+  text-align: justify;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
 .filter {
   width: 220px;
-   height: 240px;
+  height: 240px;
   position: sticky;
   top: 92px;
 
@@ -83,9 +94,9 @@ export default class CardsFilter extends Vue {
     position: fixed;
     z-index: 15;
     width: 100%;
-    height: 100%;
+    height: 120%;
     background: white;
-    top: 64px;
+    top: -45px;
     left: 0;
     opacity: 0;
     pointer-events: none;
