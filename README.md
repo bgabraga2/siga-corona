@@ -2,7 +2,7 @@
 
 Afim de facilitar o acesso a informação, sem fake news, a respeito do Corona Vírus, nós criamos o #SigaCorona
 
-O #SigaCorona é um site que junta todo conteúdo sobre o Corona Vírus de perfis confiáveis de redes sociais, como portais, cientistas, autoridades etc, de forma automática através de um algoritmo 
+O #SigaCorona é um site que junta todo conteúdo sobre o Coronavírus de perfis confiáveis de redes sociais, como portais, cientistas, autoridades etc, de forma automática através de um algoritmo 
 
 Para o desenvolvimento nós utilizamos as seguintes tecnologias: NodeJS para o crawler de publicações e API, VueJS para o front end e Heroku para hospedagem.
 
