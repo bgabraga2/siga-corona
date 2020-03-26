@@ -2,8 +2,8 @@
   <div>
     <div class="filter" :class="{ 'is-active': filterActive }">
       <p class="color-gray-dark title--h6 lh14">
-        Um agregador de notícias compartilhadas por fontes confiáveis sobre o corona vírus, feito de forma 100%
-        automática através de um algoritmo! #SigaCorona
+        Um agregador de notícias compartilhadas por fontes confiáveis sobre o <strong>corona vírus</strong>, feito de
+        forma 100% automática através de um algoritmo!<br /><br /><strong>#SigaCorona</strong>
       </p>
       <p class="filter__title color-gray-dark title--h6">Filtros</p>
       <ul class="filter__list">
@@ -82,6 +82,9 @@ export default class CardsFilter extends Vue {
   text-align: justify;
   margin-bottom: 50px;
   margin-top: 10px;
+  strong {
+    font-weight: bold;
+  }
 }
 
 .filter {
