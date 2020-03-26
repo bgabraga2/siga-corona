@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import Card from '@/components/Card.vue';
-import InstagramEmbed from 'vue-instagram-embed';
+import InstagramEmbed from 'vue-instagram-embed/src/instaEmbed';
 import { IPost } from 'api-client';
 
 @Component({

@@ -9,7 +9,8 @@ const state = {
   filterType: '',
   total: 0,
   limit: 0,
-  offset: 0
+  offset: 0,
+  firstLoaded: false
 };
 
 const getters = {
@@ -21,10 +22,16 @@ const getters = {
   },
   haveMorePost: (state: { limit: number; offset: number; total: number }) => {
     return state.offset + state.limit <= state.total;
+  },
+  getFirstLoaded: (state: { firstLoaded: boolean }) => {
+    return state.firstLoaded;
   }
 };
 
 const mutations = {
+  setFirstLoaded(state: { firstLoaded: boolean }, firstLoaded: boolean) {
+    state.firstLoaded = firstLoaded;
+  },
   setGettingPosts(state: { gettingPosts: boolean }, gettingPosts: boolean) {
     state.gettingPosts = gettingPosts;
   },
@@ -63,6 +70,7 @@ const actions = {
           context.commit('setTotal', res);
           context.commit('setLimit', res.limit);
           context.commit('setOffset', res.offset);
+          context.commit('setFirstLoaded', true);
           resolve();
         })
         .catch(error => {
