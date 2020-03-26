@@ -28,7 +28,7 @@
           {{ date | moment('timezone', 'America/Sao_Paulo', 'DD/MM/YYYY') }}
         </p>
         <p class="card__time color-gray-medium text--caption">
-          {{ date | moment('timezone', 'America/Sao_Paulo', 'h:mm') }}
+          {{ date | moment('timezone', 'America/Sao_Paulo', 'H:mm') }}
         </p>
       </div>
       <div class="card__share">
@@ -104,6 +104,7 @@ export default class Card extends Vue {
     flex-direction: column;
     width: 100%;
     max-width: 100%;
+    min-width: 100%;
   }
 
   &__slot {

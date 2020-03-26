@@ -39,5 +39,9 @@ export default class CardTwitter extends Vue {
 }
 .twitter-tweet {
   margin: 0 !important;
+  min-width: 100% !important;
+  border: none;
+  width: 100%;
+  height: 100%;
 }
 </style>
