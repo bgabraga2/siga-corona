@@ -7,6 +7,7 @@ import VueMoment from 'vue-moment';
 import moment from 'moment-timezone';
 import InfiniteLoading from 'vue-infinite-loading';
 import vueGtm from './core/vue-gtm.js';
+import 'whatwg-fetch';
 
 Vue.use(vueGtm, {
   id: process.env.VUE_APP_GTM_KEY

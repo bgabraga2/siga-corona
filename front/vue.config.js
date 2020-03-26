@@ -12,6 +12,6 @@ module.exports = {
       }
     }
   },
-  transpileDependencies: ['vuex-module-decorators', 'miragejs', 'vuex-persist'],
+  transpileDependencies: ['vue-tweet-embed', 'vue-youtube-embed', 'vue-instagram-embed'],
   lintOnSave: false
 };

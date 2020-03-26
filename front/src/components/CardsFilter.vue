@@ -75,7 +75,7 @@ export default class CardsFilter extends Vue {
 <style lang="scss" scoped>
 .filter {
   width: 220px;
-   height: 240px;
+  height: 240px;
   position: sticky;
   top: 92px;
 
