@@ -179,6 +179,8 @@ export default class CardsFilter extends Vue {
     background-repeat: no-repeat;
     background-position: center;
     z-index: 15;
+    border: 0;
+    outline: none;
 
     &.is-active {
       background-image: url('../assets/images/icon-close.png');

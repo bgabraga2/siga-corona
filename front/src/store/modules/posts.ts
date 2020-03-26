@@ -1,5 +1,6 @@
 import { IPost, IGetPostReturn } from 'api-client';
 import api from '@/api';
+var Promise = require('es6-promise').Promise;
 
 const state = {
   allPosts: [],
@@ -52,7 +53,7 @@ const mutations = {
 
 const actions = {
   getPosts(context: any) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve: any, reject: any) => {
       context.commit('setGettingPosts', true);
       api
         .getPosts(context.getters.getOffset, context.state.filterType)
