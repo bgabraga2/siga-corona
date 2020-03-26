@@ -2,8 +2,11 @@
   <div>
     <div class="filter" :class="{ 'is-active': filterActive }">
       <p class="color-gray-dark title--h6 lh14">
-        Um agregador de notícias compartilhadas por fontes confiáveis sobre o <strong>corona vírus</strong>, feito de
-        forma 100% automática através de um algoritmo!<br /><br /><strong>#SigaCorona</strong>
+        Um agregador de notícias compartilhadas por fontes confiáveis sobre o
+        <strong>corona vírus</strong>, feito de forma 100% automática através de um algoritmo!
+        <br />
+        <br />
+        <strong>#SigaCorona</strong>
       </p>
       <p class="filter__title color-gray-dark title--h6">Filtros</p>
       <ul class="filter__list">
@@ -104,6 +107,7 @@ export default class CardsFilter extends Vue {
     opacity: 0;
     pointer-events: none;
     padding: 150px 16px 0;
+    transition: all 300ms ease-in-out;
 
     &.is-active {
       opacity: 1;
@@ -112,12 +116,12 @@ export default class CardsFilter extends Vue {
   }
 
   &__title {
-    /* border-width: 3px; */
-    /* border-style: solid; */
-    /* border-image: linear-gradient(90deg, #1ef58e 0%, #0bff98 0.01%, rgba(11, 255, 152, 0.05) 100%); */
-    /* border-color: #1ef58e; */
-    border-bottom: 3px solid #1ef58e;
+    position: relative;
     padding-bottom: 10px;
+    background-image: url('../assets/images/filter-line.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
   }
 
   &__img {

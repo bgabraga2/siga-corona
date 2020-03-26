@@ -50,6 +50,7 @@ export default class SectionSingleCard extends Vue {
 
     @include media-breakpoint-down(lg) {
       max-width: 100%;
+      min-width: 100%;
     }
   }
 }

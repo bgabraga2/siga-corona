@@ -1,5 +1,5 @@
 <template>
-  <header class="header bg-gray-dark">
+  <header class="header bg-gray-dark" id="header">
     <div class="container">
       <div class="header__content">
         <router-link to="/">

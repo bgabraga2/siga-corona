@@ -24,12 +24,12 @@
           v-if="type === 'youtube'"
         />
         <p class="card__author color-gray-dark text--subtitle">{{ author }}</p>
-        <p class="card__date color-gray-medium text--caption">
-          {{ date | moment('timezone', 'America/Sao_Paulo', 'DD/MM/YYYY') }}
-        </p>
-        <p class="card__time color-gray-medium text--caption">
-          {{ date | moment('timezone', 'America/Sao_Paulo', 'H:mm') }}
-        </p>
+        <p
+          class="card__date color-gray-medium text--caption"
+        >{{ date | moment('timezone', 'America/Sao_Paulo', 'DD/MM/YYYY') }}</p>
+        <p
+          class="card__time color-gray-medium text--caption"
+        >{{ date | moment('timezone', 'America/Sao_Paulo', 'H:mm') }}</p>
       </div>
       <div class="card__share">
         <p class="card__author color-gray-dark text--caption">compartilhe:</p>
@@ -138,6 +138,23 @@ export default class Card extends Vue {
 
     &-item {
       margin-right: 16px;
+    }
+  }
+
+  &__info {
+    @include media-breakpoint-down(lg) {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        background-image: url('../assets/images/mob-line.png');
+        background-repeat: no-repeat;
+        background-position: left;
+        height: 100%;
+        left: -11px;
+        width: 1px;
+      }
     }
   }
 
