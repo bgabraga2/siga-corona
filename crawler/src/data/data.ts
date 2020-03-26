@@ -9,7 +9,8 @@ export const twitterAccounts = [
   "bbcbrasil",
   "uolnoticias",
   "OGloboPolitica",
-  "estadao"
+  "estadao",
+  "OGlobo_Mundo"
 ];
 export const twitterSpecialWords = [
   "covid-19",
