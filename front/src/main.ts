@@ -9,9 +9,9 @@ import InfiniteLoading from 'vue-infinite-loading';
 import vueGtm from './core/vue-gtm.js';
 import 'whatwg-fetch';
 
-// Vue.use(vueGtm, {
-//   id: process.env.VUE_APP_GTM_KEY
-// });
+Vue.use(vueGtm, {
+  id: process.env.VUE_APP_GTM_KEY
+});
 
 Vue.use(VueMoment, {
   moment
