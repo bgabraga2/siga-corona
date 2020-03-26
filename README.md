@@ -8,7 +8,7 @@ Para o desenvolvimento nós utilizamos as seguintes tecnologias: NodeJS para o c
 
 ## Quer contribuir?
 
-Nós acreditamos que a quarentena para conter o Coronavírus vai durar alguns meses ainda, toda ajuda é bem vinda. Basta criar um fork e submeter um pr com suas modificações e novas features.
+Nós acreditamos que a quarentena para conter o Coronavírus vá durar alguns meses ainda, toda ajuda é bem vinda. Basta criar um fork e submeter um pr com suas modificações e novas features.
 
 Em alguns dias criaremos as issues com futuras funcionalidades, correções, etc.
 
