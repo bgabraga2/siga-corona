@@ -104,6 +104,7 @@ export default class Card extends Vue {
     flex-direction: column;
     width: 100%;
     max-width: 100%;
+    min-width: 100%;
   }
 
   &__slot {

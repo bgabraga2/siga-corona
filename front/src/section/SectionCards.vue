@@ -44,7 +44,7 @@ export default class SectionCards extends Vue {
     this.filterSelected = this.filterSelected === filter ? '' : filter;
     this.setFilterType(this.filterSelected);
     this.infiniteId += 1;
-    
+
     if (filter) {
       this.$gtm.sendCustomEvent('click-filter', { name: this.filterSelected });
     }
@@ -71,6 +71,7 @@ export default class SectionCards extends Vue {
 
     @include media-breakpoint-down(lg) {
       max-width: 100%;
+      min-width: 100%;
     }
   }
 }
