@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { Tweet, Moment, Timeline } from 'vue-tweet-embed/src/index';
+import { Tweet, Moment, Timeline } from 'vue-tweet-embed';
 import Card from '@/components/Card.vue';
 import { IPost } from 'api-client';
 import Loading from '@/components/Loading.vue';
