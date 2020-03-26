@@ -1,6 +1,6 @@
-declare module 'vue-tweet-embed';
+declare module 'vue-tweet-embed/src/index';
 declare module 'vue-youtube-embed';
-declare module 'vue-instagram-embed';
+declare module 'vue-instagram-embed/src/instaEmbed';
 declare module 'moment-timezone';
 declare module 'vue-moment';
 declare module 'vue-infinite-loading';
