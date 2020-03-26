@@ -9,7 +9,11 @@
             <card-youtube v-if="post.type === 'youtube'" :post="post" />
             <card-instagram v-if="post.type === 'instagram'" :post="post" />
           </div>
-          <infinite-loading :identifier="infiniteId" @infinite="infiniteHandler" />
+          <infinite-loading
+            v-if="getFirstLoaded"
+            :identifier="infiniteId"
+            @infinite="infiniteHandler"
+          />
         </div>
       </div>
     </div>
@@ -34,6 +38,7 @@ export default class SectionCards extends Vue {
   infiniteId = +new Date();
   @Getter('getPosts') posts: any;
   @Getter('haveMorePost') haveMorePost: any;
+  @Getter('getFirstLoaded') getFirstLoaded: any;
   @Action('getPosts') getPosts: any;
   @Action('setFilterType') setFilterType: any;
   $gtm!: {
