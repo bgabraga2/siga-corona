@@ -5,7 +5,11 @@ export const twitterAccounts = [
   "nilmoretto",
   "OPASOMSBrasil",
   "minsaude",
-  "OGlobo_Esportes"
+  "OGlobo_Esportes",
+  "bbcbrasil",
+  "uolnoticias",
+  "OGloboPolitica",
+  "estadao"
 ];
 export const twitterSpecialWords = [
   "covid-19",
@@ -17,7 +21,12 @@ export const twitterSpecialWords = [
 ];
 
 // Instagram data
-export const instagramAccounts = ["oatila", "minsaude"];
+export const instagramAccounts = [
+  "oatila",
+  "minsaude",
+  "jornaloglobo",
+  "estadao"
+];
 export const instagramSpecialWords = [
   "covid-19",
   "covid",
