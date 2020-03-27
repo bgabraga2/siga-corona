@@ -1,7 +1,17 @@
 import mongoose, { Document, Schema } from "mongoose";
 import mongoosePaginate from "mongoose-paginate";
 
-export interface IPost extends Document {}
+export interface IPost extends Document {
+  type: PostTypes;
+  user: string;
+  url: string;
+  socialId: string;
+  image: string;
+  title: string;
+  text: string;
+  date: Date;
+  fullJson: string;
+}
 
 export enum PostTypes {
   'twitter',
