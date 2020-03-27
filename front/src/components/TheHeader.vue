@@ -2,12 +2,12 @@
   <header class="header bg-gray-dark" id="header">
     <div class="container">
       <div class="header__content">
-        <router-link to="/">
+        <a href="javascript:void(0)" @click="topClick">
           <img :src="require('@/assets/images/logo-siga-corona.svg')" alt />
           <h1 class="header__title color-white sr-only">
             <span class="header__hash">#</span>SigaCorona
           </h1>
-        </router-link>
+        </a>
         <!-- <a href class="header__link color-green">+ INFO</a> -->
       </div>
     </div>
@@ -16,11 +16,38 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+var VueScrollTo = require('vue-scrollto');
 
 @Component({
   components: {}
 })
-export default class TheHeader extends Vue {}
+export default class TheHeader extends Vue {
+  scrollTrigger = 150;
+  isScrolled = false;
+
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll() {
+    if (window.scrollY > this.scrollTrigger && !this.isScrolled) {
+      this.isScrolled = true;
+    }
+
+    if (window.scrollY < this.scrollTrigger && this.isScrolled) {
+      this.isScrolled = false;
+    }
+  }
+
+  topClick(){
+    if(this.$route.name == 'Home' && this.isScrolled){
+      VueScrollTo.scrollTo('#header');
+    }
+    else if(this.$route.name != 'Home'){
+      this.$router.push('/');
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
