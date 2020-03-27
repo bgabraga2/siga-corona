@@ -49,15 +49,16 @@
               <img :src="require('@/assets/images/icon-facebook.svg')" alt />
             </a>
           </li>
-          <li class="card__list-item">
+          <li class="card__list-item tooltip">
             <a @click="copyToClipboard()" href="javascript:void(0);">
               <img
                 class="card__clipboard"
                 :class="{ 'is-copying': copyingToClipboard }"
-                :src="require('@/assets/images/clipboard.png')"
+                :src="require('@/assets/images/clipboard.svg')"
                 alt
               />
             </a>
+            <span class="tooltiptext tooltip-bottom">Copiar link</span>
           </li>
         </ul>
       </div>
@@ -219,6 +220,53 @@ export default class Card extends Vue {
 
       @include media-breakpoint-down(lg) {
         display: none;
+      }
+    }
+  }
+
+  .tooltip {
+    position: relative;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    position: absolute;
+    width: 85px;
+    background-color: $gray-dark;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .tooltip-bottom {
+    bottom: -37px;
+    right: -10px;
+
+    @include media-breakpoint-up(lg) {
+      right: -32px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 64px;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent $gray-dark transparent;
+
+      @include media-breakpoint-up(lg) {
+        left: 50%;
       }
     }
   }
