@@ -167,6 +167,11 @@ export default class Card extends Vue {
 
     &-item {
       margin-right: 16px;
+      a {
+        height: 24px;
+        width: 24px;
+        display: block;
+      }
     }
   }
 
