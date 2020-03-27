@@ -3,6 +3,10 @@
     <div class="container">
       <div class="section-cards__content d-flex justify-content-center">
         <div class="section-cards__itens">
+          <div class="single__back">
+            <img :src="require('@/assets/images/chevron-up.svg')" alt="" />
+            <router-link to="/" class="text text--overline color-gray-dark">ver todas notícias</router-link>
+          </div>
           <div v-for="post in posts" :key="post._id">
             <card-twitter v-if="post.type === 'twitter'" :post="post" />
             <card-youtube v-if="post.type === 'youtube'" :post="post" />
@@ -46,11 +50,30 @@ export default class SectionSingleCard extends Vue {
 <style lang="scss" scoped>
 .section-cards {
   &__itens {
-    margin: 15px auto 0;
+    margin: 0 auto 0;
 
     @include media-breakpoint-down(lg) {
       max-width: 100%;
       min-width: 100%;
+    }
+  }
+}
+
+.single {
+  &__back {
+    margin: 20px 0 15px;
+
+    @include media-breakpoint-up(lg) {
+      margin: 0 0 25px;
+    }
+
+    img {
+      transform: rotate(-90deg);
+      margin-right: 4px;
+    }
+
+    a {
+      font-size: 14px;
     }
   }
 }
