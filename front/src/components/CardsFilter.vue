@@ -1,13 +1,6 @@
 <template>
   <div>
     <div class="filter" :class="{ 'is-active': filterActive }">
-      <p class="color-gray-dark title--h6 lh14">
-        Um agregador de notícias compartilhadas por fontes confiáveis sobre o
-        <strong>corona vírus</strong>, feito de forma 100% automática através de um algoritmo!
-        <br />
-        <br />
-        <strong>#SigaCorona</strong>
-      </p>
       <p class="filter__title color-gray-dark title--h6">Filtros</p>
       <ul class="filter__list">
         <p class="filter__label color-gray-dark text--overline">plataformas</p>
@@ -22,6 +15,15 @@
           </button>
         </li>
       </ul>
+      <div class="about">
+        <h2 class="color-gray-dark text--overline">
+          sobre o projeto
+        </h2>
+        <h3 class="color-gray-dark text--body-sm lh14">
+          #SigaCorona é um agregador de notícias compartilhadas por fontes confiáveis sobre o
+          <strong>Corona Vírus</strong> nas principais redes sociais. Fique por dentro das últimas atualizações.
+        </h3>
+      </div>
     </div>
     <button
       class="filter__mobile-btn d-lg-none"
@@ -82,19 +84,27 @@ export default class CardsFilter extends Vue {
 <style lang="scss" scoped>
 .lh14 {
   line-height: 1.4em;
-  text-align: justify;
-  margin-bottom: 50px;
+  margin-bottom: 24px;
   margin-top: 10px;
   strong {
     font-weight: bold;
   }
 }
 
+.about {
+  margin-top: auto;
+  @include media-breakpoint-down(lg) {
+    margin-top: 80px;
+  }
+}
+
 .filter {
   width: 220px;
-  height: 240px;
+  height: calc(100vh - 92px);
   position: sticky;
   top: 92px;
+  display: flex;
+  flex-direction: column;
 
   @include media-breakpoint-down(lg) {
     position: fixed;
@@ -173,7 +183,7 @@ export default class CardsFilter extends Vue {
   &__mobile-btn {
     position: fixed;
     bottom: 24px;
-    right: 24px;
+    left: 15px;
     width: 44px;
     height: 44px;
     border-radius: 50%;

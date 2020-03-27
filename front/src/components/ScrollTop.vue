@@ -63,8 +63,14 @@ export default class TheHeader extends Vue {
     width: 44px;
     height: 44px;
 
+    margin-left: auto;
+
     img {
       width: 20px;
+      height: 20px;
+      object-fit: contain;
+      object-position: center;
+      transform: translateY(-1px);
     }
 
     &.is-active {
