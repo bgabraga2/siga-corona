@@ -26,7 +26,7 @@ export default class TheHeader extends Vue {
   isScrolled = false;
 
   mounted() {
-    window.addEventListener('scroll', this.handleScroll);
+    if(this.$route.name == 'Home') window.addEventListener('scroll', this.handleScroll);
   }
 
   handleScroll() {
@@ -40,12 +40,8 @@ export default class TheHeader extends Vue {
   }
 
   logoClick(){
-    if(this.$route.name == 'Home' && this.isScrolled){
-      VueScrollTo.scrollTo('#header');
-    }
-    else if(this.$route.name != 'Home'){
-      this.$router.push('/');
-    }
+    if(this.$route.name == 'Home' && this.isScrolled) VueScrollTo.scrollTo('#header');
+    else if(this.$route.name != 'Home') this.$router.push('/');
   }
 }
 </script>
