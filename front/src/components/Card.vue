@@ -97,7 +97,7 @@ export default class Card extends Vue {
   }
 
   shareUrl(socialNetwork: string) {
-    const url = encodeURIComponent(`${window.location.href}posts/${this.id}`);
+    const url = encodeURIComponent(`${process.env.VUE_APP_API_ENDPOINT}/posts/share/${this.id}`);
 
     switch (socialNetwork) {
       case 'whatsapp':
