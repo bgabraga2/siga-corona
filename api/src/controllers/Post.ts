@@ -101,7 +101,7 @@ class Posts {
         </head>
         <body>
           <script>
-              window.location.href = "${process.env.SITE_URL}/posts/${postId}"
+              window.location.href = "${process.env.SITE_URL}/#/posts/${postId}"
           </script>
         </body>
       </html>
