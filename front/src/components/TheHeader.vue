@@ -3,7 +3,10 @@
     <div class="container">
       <div class="header__content">
         <router-link to="/">
-          <h1 class="header__title color-white"><span class="header__hash">#</span>SigaCorona</h1>
+          <img :src="require('@/assets/images/logo-siga-corona.svg')" alt />
+          <h1 class="header__title color-white sr-only">
+            <span class="header__hash">#</span>SigaCorona
+          </h1>
         </router-link>
         <!-- <a href class="header__link color-green">+ INFO</a> -->
       </div>

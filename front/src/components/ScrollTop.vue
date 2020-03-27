@@ -2,7 +2,7 @@
   <div class="scroll-top">
     <div class="container">
       <button class="scroll-top-btn" :class="{ 'is-active': isScrolled }" v-on:click="scrollToTop">
-        <img :src="require('../assets/images/chevron-up.png')" alt="Chevron TOP" />
+        <img :src="require('../assets/images/chevron-up.svg')" alt="Chevron TOP" />
       </button>
     </div>
   </div>
@@ -60,11 +60,11 @@ export default class TheHeader extends Vue {
     transform: scale(0.5);
     transition: all 350ms ease-in-out;
     outline: none;
+    width: 44px;
+    height: 44px;
 
     img {
-      width: 44px;
-      object-fit: contain;
-      height: 44px;
+      width: 20px;
     }
 
     &.is-active {

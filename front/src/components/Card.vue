@@ -24,12 +24,12 @@
           v-if="type === 'youtube'"
         />
         <p class="card__author color-gray-dark text--subtitle">{{ author }}</p>
-        <p
-          class="card__date color-gray-medium text--caption"
-        >{{ date | moment('timezone', 'America/Sao_Paulo', 'DD/MM/YYYY') }}</p>
-        <p
-          class="card__time color-gray-medium text--caption"
-        >{{ date | moment('timezone', 'America/Sao_Paulo', 'H:mm') }}</p>
+        <p class="card__date color-gray-medium text--caption">
+          {{ date | moment('timezone', 'America/Sao_Paulo', 'DD/MM/YYYY') }}
+        </p>
+        <p class="card__time color-gray-medium text--caption">
+          {{ date | moment('timezone', 'America/Sao_Paulo', 'H:mm') }}
+        </p>
       </div>
       <div class="card__share">
         <p class="card__author color-gray-dark text--caption">compartilhe:</p>
@@ -47,6 +47,16 @@
           <li class="card__list-item">
             <a :href="shareUrl('facebook')" @click="gtmHandle('facebook')" target="_blank">
               <img :src="require('@/assets/images/icon-facebook.svg')" alt />
+            </a>
+          </li>
+          <li class="card__list-item">
+            <a @click="copyToClipboard()" href="javascript:void(0);">
+              <img
+                class="card__clipboard"
+                :class="{ 'is-copying': copyingToClipboard }"
+                :src="require('@/assets/images/clipboard.png')"
+                alt
+              />
             </a>
           </li>
         </ul>
@@ -67,6 +77,7 @@ export default class Card extends Vue {
   @Prop() author!: string;
   @Prop() date!: string | Date;
   @Prop() id!: string;
+  copyingToClipboard: boolean = false;
   $gtm!: {
     sendCustomEvent: Function;
   };
@@ -74,6 +85,15 @@ export default class Card extends Vue {
   gtmHandle(social: string) {
     this.$gtm.sendCustomEvent('link-shared', { name: this.id });
     this.$gtm.sendCustomEvent('social-share', { name: social });
+  }
+
+  async copyToClipboard() {
+    this.copyingToClipboard = true;
+    this.gtmHandle('clipboard');
+    await this.$copyText(`${window.location.href}posts/${this.id}`);
+    setTimeout(() => {
+      this.copyingToClipboard = false;
+    }, 400);
   }
 
   shareUrl(socialNetwork: string) {
@@ -105,6 +125,15 @@ export default class Card extends Vue {
     width: 100%;
     max-width: 100%;
     min-width: 100%;
+  }
+
+  &__clipboard {
+    width: 24px;
+    height: 24px;
+    transition: opacity 300ms ease-in-out;
+    &.is-copying {
+      opacity: 0.3;
+    }
   }
 
   &__slot {
