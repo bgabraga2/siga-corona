@@ -26,7 +26,7 @@ export default class TheHeader extends Vue {
   isScrolled = false;
 
   mounted() {
-    if(this.$route.name == 'Home') window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   handleScroll() {
