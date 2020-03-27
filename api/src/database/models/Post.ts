@@ -14,9 +14,9 @@ export interface IPost extends Document {
 }
 
 export enum PostTypes {
-  'twitter',
-  'instagram',
-  'youtube'
+  twitter = 'twitter',
+  instagram = 'instagram',
+  youtube = 'youtube'
 }
 
 const schema = new Schema(

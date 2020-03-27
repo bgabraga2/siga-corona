@@ -76,6 +76,25 @@ class Posts {
 
     const post = await PostModel.findById(postId);
 
+    let shareTitle = process.env.SITE_TITLE;
+    let shareImage = process.env.SITE_IMAGE;
+    let shareImageWidth = 1200;
+    let shareImageHeight = 628;
+
+    if(post.type == PostTypes.instagram){
+      const json = JSON.parse(post.fullJson);
+      shareImage = json.thumbnail_src;
+      shareImageWidth = 640;
+      shareImageHeight = 640;
+    }
+    else if (post.type == PostTypes.youtube){
+      const json = JSON.parse(post.fullJson);
+      shareTitle += ` - ${json.snippet.title}`;
+      shareImage = json.snippet.thumbnails.high.url;
+      shareImageWidth = json.snippet.thumbnails.high.width;
+      shareImageHeight = json.snippet.thumbnails.high.height;
+    }
+
     if (post) res.send(`
       <!DOCTYPE html>
       <html>
@@ -84,24 +103,24 @@ class Posts {
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <meta name="description" content="${post.text}" />
           <meta property="og:locale" content="pt_BR" />
-          <meta property="og:title" content="${process.env.SITE_TITLE}" />
+          <meta property="og:title" content="${shareTitle}" />
           <meta property="og:url" content="${process.env.SITE_API_ENDPOINT}/posts/share/${postId}" />
           <meta property="og:type" content="website" />
-          <meta property="og:image" content="${process.env.SITE_IMAGE}" />
+          <meta property="og:image" content="${shareImage}" />
           <meta property="og:image:type" content="image/jpeg" />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="628" />
+          <meta property="og:image:width" content="${shareImageWidth}" />
+          <meta property="og:image:height" content="${shareImageHeight}" />
           <meta property="og:description" content="${post.text}" />
-          <meta property="og:site_name" content="${process.env.SITE_TITLE}" />
-          <title>${process.env.SITE_TITLE}</title>
+          <meta property="og:site_name" content="${shareTitle}" />
+          <title>${shareTitle}</title>
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:description" content="${post.text}" />
-          <meta name="twitter:title" content="${process.env.SITE_TITLE}" />
-          <meta name="twitter:image" content="${process.env.SITE_IMAGE}" />
+          <meta name="twitter:title" content="${shareTitle}" />
+          <meta name="twitter:image" content="${shareImage}" />
         </head>
         <body>
           <script>
-              window.location.href = "${process.env.SITE_URL}/#/posts/${postId}"
+            window.location.href = "${process.env.SITE_URL}/#/posts/${postId}"
           </script>
         </body>
       </html>
