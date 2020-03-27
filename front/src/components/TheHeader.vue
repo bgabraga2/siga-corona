@@ -2,7 +2,7 @@
   <header class="header bg-gray-dark" id="header">
     <div class="container">
       <div class="header__content">
-        <a href="javascript:void(0)" @click="topClick">
+        <a href="javascript:void(0)" @click="logoClick">
           <img :src="require('@/assets/images/logo-siga-corona.svg')" alt />
           <h1 class="header__title color-white sr-only">
             <span class="header__hash">#</span>SigaCorona
@@ -39,7 +39,7 @@ export default class TheHeader extends Vue {
     }
   }
 
-  topClick(){
+  logoClick(){
     if(this.$route.name == 'Home' && this.isScrolled){
       VueScrollTo.scrollTo('#header');
     }
