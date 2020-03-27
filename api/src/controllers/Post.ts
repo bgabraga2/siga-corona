@@ -65,6 +65,49 @@ class Posts {
     if (post) res.json(post);
     else res.status(404).json({ errors: [{ msg: 'Post não encontrado' }] });
   }
+
+  static async shareOne(req: Request, res: Response) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const postId = req.params.id;
+
+    const post = await PostModel.findById(postId);
+
+    if (post) res.send(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="description" content="${post.text}" />
+          <meta property="og:locale" content="pt_BR" />
+          <meta property="og:title" content="${process.env.SITE_TITLE}" />
+          <meta property="og:url" content="${process.env.SITE_API_ENDPOINT}/posts/share/${postId}" />
+          <meta property="og:type" content="website" />
+          <meta property="og:image" content="${process.env.SITE_IMAGE}" />
+          <meta property="og:image:type" content="image/jpeg" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="628" />
+          <meta property="og:description" content="${post.text}" />
+          <meta property="og:site_name" content="${process.env.SITE_TITLE}" />
+          <title>${process.env.SITE_TITLE}</title>
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:description" content="${post.text}" />
+          <meta name="twitter:title" content="${process.env.SITE_TITLE}" />
+          <meta name="twitter:image" content="${process.env.SITE_IMAGE}" />
+        </head>
+        <body>
+          <script>
+              window.location.href = "${process.env.SITE_URL}/#/posts/${postId}"
+          </script>
+        </body>
+      </html>
+    `);
+    else res.status(404).json({ errors: [{ msg: 'Post não encontrado' }] });
+  }
 }
 
 export default Posts;
