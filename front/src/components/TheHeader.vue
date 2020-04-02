@@ -41,7 +41,7 @@ export default class TheHeader extends Vue {
 
   logoClick(){
     if(this.$route.name == 'Home' && this.isScrolled) VueScrollTo.scrollTo('#header');
-    else if(this.$route.name != 'Home') this.$router.push('/');
+    else this.$router.push('/');
   }
 }
 </script>
