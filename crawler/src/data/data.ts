@@ -10,7 +10,8 @@ export const twitterAccounts = [
   "uolnoticias",
   "OGloboPolitica",
   "estadao",
-  "OGlobo_Mundo"
+  "OGlobo_Mundo",
+  "lucasrohan"
 ];
 export const twitterSpecialWords = [
   "covid-19",
