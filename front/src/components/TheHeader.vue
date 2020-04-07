@@ -8,7 +8,7 @@
             <span class="header__hash">#</span>SigaCorona
           </h1>
         </a>
-        <!-- <a href class="header__link color-green">+ INFO</a> -->
+        <router-link to="/sobre" class="header__link color-green">+ INFO</router-link>
       </div>
     </div>
   </header>
@@ -39,9 +39,9 @@ export default class TheHeader extends Vue {
     }
   }
 
-  logoClick(){
-    if(this.$route.name == 'Home' && this.isScrolled) VueScrollTo.scrollTo('#header');
-    else if(this.$route.name != 'Home') this.$router.push('/');
+  logoClick() {
+    if (this.$route.name == 'Home' && this.isScrolled) VueScrollTo.scrollTo('#header');
+    else if (this.$route.name != 'Home') this.$router.push('/');
   }
 }
 </script>
