@@ -1,0 +1,51 @@
+service:
+    name: follow-covid-19
+
+custom: ${file(./env.yml):${opt:s, 'staging'}}
+
+plugins:
+    - serverless-webpack
+    - serverless-offline
+    - serverless-prune-plugin
+
+provider:
+    name: aws
+    runtime: nodejs10.x
+    timeout: 10
+    region: ${opt:region, 'us-west-2'}
+    deploymentBucket:
+        name: casion.deployments.serverless
+    environment:
+        NODE_ENV: ${self:custom.stagename}
+        TZ: America/Sao_Paulo
+
+functions:      
+    fetch:
+        handler: src/handlers/fetch.handler
+        events:
+            - http:
+                  method: get
+                  path: posts
+                  cors: true
+    findOne:
+        handler: src/handlers/findOne.handler
+        events:
+            - http:
+                  method: get
+                  path: posts/{id}
+                  cors: true   
+                  request: 
+                    parameters: 
+                      paths: 
+                        id: true    
+    shareOne:
+        handler: src/handlers/shareOne.handler
+        events:
+            - http:
+                  method: get
+                  path: posts/share/{id}
+                  cors: true   
+                  request: 
+                    parameters: 
+                      paths: 
+                        id: true  
