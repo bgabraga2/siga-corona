@@ -38,10 +38,12 @@ export default class CardTwitter extends Vue {
   position: relative;
 }
 .twitter-tweet {
-  margin: 0 !important;
-  min-width: 100% !important;
-  border: none;
-  width: 100%;
-  height: 100%;
+  @include media-breakpoint-up(lg) {
+    margin: 0 !important;
+    min-width: 100% !important;
+    border: none;
+    width: 460px !important;
+    height: 100%;
+  }
 }
 </style>
