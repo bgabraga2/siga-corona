@@ -8,7 +8,7 @@
         "prod": "serverless deploy -s production"
     },
     "dependencies": {
-        "aws-sdk": "^2.524.0",
+        "aws-sdk": "^2.814.0",
         "dotenv-webpack": "^1.7.0",
         "http-errors": "^1.7.3",
         "middy": "^0.29.0",
